@@ -7,7 +7,6 @@ import threading
 import unittest
 from imp import find_module
 from optparse import make_option
-from unittest import _strclass
 from windmill.bin import admin_lib
 from windmill.authoring import WindmillTestClient
 from django.db.models import get_app, get_apps
@@ -279,7 +278,7 @@ class WindmillMixin(object):
         return "http://%s:%s" % (TEST_SERVER_HOST, TEST_SERVER_PORT)
 
     def shortDescription(self):
-            return "%s (%s) under browser %s" % (self._testMethodName,  _strclass(self.__class__), windmill.settings['active_browser'])
+            return "%s (%s) under browser %s" % (self._testMethodName,  str(self.__class__), windmill.settings['active_browser'])
 
     def __call__(self, result=None):
         self.windmill = WindmillTestClient(__name__)
